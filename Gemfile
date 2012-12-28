@@ -12,6 +12,10 @@ gem 'pg'
 gem 'delayed_job_active_record'
 
 gem 'savon', '~>1.2.0'
+
+gem 'honeybadger'
+
+gem 'http_logger', :git => "https://github.com/railsware/http_logger.git"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -30,7 +34,6 @@ gem 'savon', '~>1.2.0'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
-  gem 'http_logger', :git => "https://github.com/railsware/http_logger.git"
 end
 
 group :test do
