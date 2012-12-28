@@ -75,7 +75,7 @@ class AmvData < ActiveRecord::Base
       self.expires_at = CACHE_TTL.seconds.from_now         # reset expires_at
       self.save!                                           # try to save!
     rescue Exception => e
-      #todo: log error
+      Honeybadger.notify(e)
     end
 
     products_txt
@@ -90,7 +90,7 @@ class AmvData < ActiveRecord::Base
         temp =  Nori.parse(data)
         products = temp[:products][:product] if temp[:products] && temp[:products][:product]
       rescue Exception => e
-        #todo :log error
+        Honeybadger.notify(e)
       end
     end
 
