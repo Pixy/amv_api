@@ -1,0 +1,6 @@
+== Configuration
+
+In production several environement variables need to be manually set:
+*  AMV_URL
+*  AMV_USER
+*  AMV_PASSWORD

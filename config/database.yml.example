@@ -1,0 +1,15 @@
+login: &login
+  adapter: postgresql
+  encoding: UTF8
+  username: username
+  password: password
+  host: 127.0.0.1
+
+development:
+  <<: *login
+  database: amv_api_development
+
+test:
+  <<: *login
+  database: amv_api_test
+  min_messages: WARNING

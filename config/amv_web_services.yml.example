@@ -1,0 +1,11 @@
+login: &login
+  url: http://xxx
+  user: xxx
+  password: xxx
+
+development:
+  <<: *login
+
+test:
+  <<: *login
+
