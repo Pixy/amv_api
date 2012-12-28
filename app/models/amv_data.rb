@@ -89,7 +89,8 @@ class AmvData < ActiveRecord::Base
       begin
         temp =  Nori.parse(data)
         products = temp[:products][:product] if temp[:products] && temp[:products][:product]
-      #rescue  => e
+       #todo: uncomment this
+       #rescue  => e
        # Honeybadger.notify(e)
        # expire!   #data is not parseable => expire it!
       end
