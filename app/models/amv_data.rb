@@ -91,10 +91,15 @@ class AmvData < ActiveRecord::Base
         products = temp[:products][:product] if temp[:products] && temp[:products][:product]
       rescue Exception => e
         Honeybadger.notify(e)
+        expire!   #data is not parseable => expire it!
       end
     end
 
     products
+  end
+
+  def expire!
+    self.update_attribute(:expires_at, nil)
   end
 
   def expired?
