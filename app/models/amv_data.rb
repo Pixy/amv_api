@@ -98,8 +98,8 @@ class AmvData < ActiveRecord::Base
       rescue Exception => e
         #todo expire unparsable data
         Honeybadger.notify(
-            :error_class   => e.class,
-            :error_message => "#{e.class}: #{e.message}",
+            :error_class   => e.class.name,
+            :error_message => "#{e.class.name}: #{e.message}",
             :backtrace => e.backtrace,
             :context => {:self => self.to_yaml}
         )
