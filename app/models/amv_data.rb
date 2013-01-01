@@ -96,7 +96,7 @@ class AmvData < ActiveRecord::Base
         temp =  Nori.parse(data)
         products = temp[:products][:product]
       rescue Exception => e
-        todo #expire unparsable data
+        #todo expire unparsable data
         Honeybadger.notify(
             :error_class   => e.class,
             :error_message => "#{e.class}: #{e.message}",
