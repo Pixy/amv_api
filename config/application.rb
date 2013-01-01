@@ -58,5 +58,11 @@ module AmvApi
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # It turns out there are some changes in the Rails 3.2 initialization process that conflicts with Heroku slug
+    # compilation. The solution is very simple. All you have to do is to set the Rails 3.2 initialize_on_precompile
+    # configuration to false in your application.rb file.
+    # http://www.simonecarletti.com/blog/2012/02/heroku-and-rails-3-2-assetprecompile-error/
+    config.assets.initialize_on_precompile = false
   end
 end
