@@ -7,4 +7,13 @@ class ProductsController < ApplicationController
        render :json => Array.new
      end
    end
+
+   def skus
+     begin
+       @amv_data = AmvDataBySku.find_by_q(params[:q]) || AmvDataBySku.create!(:q => params[:q])
+       render :json => @amv_data.get_products
+     rescue => e
+       render :json => Array.new
+     end
+   end
 end
