@@ -14,6 +14,8 @@ gem 'delayed_job_active_record'
 gem 'savon', '~>1.2.0'
 
 gem "honeybadger"
+
+gem 'rack-cors', :require => 'rack/cors'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

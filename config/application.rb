@@ -64,5 +64,19 @@ module AmvApi
     # configuration to false in your application.rb file.
     # http://www.simonecarletti.com/blog/2012/02/heroku-and-rails-3-2-assetprecompile-error/
     config.assets.initialize_on_precompile = false
+
+
+    # Support for Cross-Origin Resource Sharing (CORS) for Rack compatible web applications. The CORS spec allows web
+    # applications to make cross domain AJAX calls without using workarounds such as JSONPFor example, this will allow
+    # from any origins on any resource of your application, on any GET or POST requests
+
+
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        #todo : reduce list allowed origins
+        resource '*', :headers => :any, :methods => [:get, :post]
+      end
+    end
   end
 end
