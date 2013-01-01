@@ -1,5 +1,6 @@
 var AmvProducts = ( function() {
     var logging_enabled = false;
+    //var server_url = "http://amv-api.dev/"
 
 
     function enable_logging(){
@@ -15,7 +16,21 @@ var AmvProducts = ( function() {
 
     function init() {
 
-        log("AmvProdutcs has been initiated")
+
+        document.observe("dom:loaded", function() {
+            elements  = $$('.products-by-tag');
+
+            if (elements){
+                elements.each( function(element) {
+                     q = element.select(".input .q").first().innerHTML;
+                     element.select(".products").first().update(q);
+
+                });
+            }
+
+            log("AmvProdutcs has been initiated")
+        });
+
     }
 
     return {
