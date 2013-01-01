@@ -1,6 +1,6 @@
 var AmvProducts = ( function() {
     var logging_enabled = false;
-    //var server_url = "http://amv-api.dev/"
+    var server_url = "http://amv-api.herokuapp.com"     //without the ending '/ '
 
 
     function enable_logging(){
@@ -14,16 +14,45 @@ var AmvProducts = ( function() {
         }
     }
 
+    function show_spinner(widget)  {
+        var spinner =  new Element('img', {class: 'spinner', src: (server_url+'/images/ajax-loader.gif') })
+        widget.select(".products").first().update(spinner)
+    }
+
     function init() {
 
-
         document.observe("dom:loaded", function() {
-            elements  = $$('.products-by-tag');
+            widgets  = $$('.products-by-tag');
 
-            if (elements){
-                elements.each( function(element) {
-                     q = element.select(".input .q").first().innerHTML;
-                     element.select(".products").first().update(q);
+            if (widgets){
+                widgets.each( function(widget) {
+                     q = widget.select(".input .q").first().innerHTML;
+
+
+                    new Ajax.Request( server_url + "/products/by_tag" , {
+                        parameters: {q: q},
+                        onLoading: function(transport) {
+                            show_spinner(widget)
+                        },
+
+                        onFailure: function(transport) {
+                            widget.hide();
+                        },
+
+                        onSuccess: function(transport) {
+
+                            if (transport.responseJSON.length == 0) {
+                                widget.hide();
+                            } else {
+
+                                widget.select(".products").first().update(JSON.stringify(transport.responseJSON));
+                                log("search with " + JSON.stringify(transport.request.parameters) + " returned " + transport.responseJSON.length + " results")
+
+                            }
+
+                        }
+                    })
+
 
                 });
             }
