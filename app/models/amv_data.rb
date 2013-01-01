@@ -10,7 +10,7 @@ class AmvData < ActiveRecord::Base
   class << self
     def config
       if Rails.env.production?
-        @@api_configuration ||= { :url => ENV['AMV_URL'], :user => ENV['AMV_USER'], :password =>  ENV['AMV_PASSWORD'] }
+        @@api_configuration ||= { 'url' => ENV['AMV_URL'], 'user' => ENV['AMV_USER'], 'password' =>  ENV['AMV_PASSWORD'] }
       else
         @@api_configuration ||= YAML.load(File.read(Rails.root.join("config", "amv_web_services.yml")))[Rails.env]
       end
