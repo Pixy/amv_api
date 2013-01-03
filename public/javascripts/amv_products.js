@@ -32,10 +32,10 @@ var AmvProducts = ( function() {
             q = input.innerHTML;
             if (input.hasClassName("by-tag")) {
                 url = server_url +  "/products/by_tag"
-                fetch_products_from_remote(url, widget)
+                fetch_products_from_remote(url, q, widget)
             } else if (input.hasClassName("by-skus")) {
                 url = server_url +  "/products/by_skus"
-                fetch_products_from_remote(url, widget)
+                fetch_products_from_remote(url, q, widget)
             } else {
                 log("unable to detect the input type")
             }
@@ -46,7 +46,7 @@ var AmvProducts = ( function() {
     }
 
 
-    function  fetch_products_from_remote(url, widget) {
+    function  fetch_products_from_remote(url, q, widget) {
 
         new Ajax.Request( url , {
             parameters: {q: q},
