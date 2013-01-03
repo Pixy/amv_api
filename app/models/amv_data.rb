@@ -5,7 +5,8 @@ class AmvData < ActiveRecord::Base
 
   attr_accessible :q
 
-  CACHE_TTL = 24 * 3600 #seconds
+  #CACHE_TTL = 24 * 3600 #seconds
+  CACHE_TTL = 5 #seconds             #todo : change this after the validation process
 
   class << self
     def config
