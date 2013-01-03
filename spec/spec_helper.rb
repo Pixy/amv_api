@@ -48,6 +48,6 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.hook_into :fakeweb
   c.around_http_request do |request|
-    VCR.use_cassette('amv_data', :record => :new_episodes, :match_requests_on => [:method, :body, :uri], &request)
+    VCR.use_cassette('amv_data', :record => :new_episodes, :match_requests_on => [:method, :body, :uri],  :re_record_interval => 15.minutes, &request)
   end
 end
