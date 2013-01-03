@@ -97,3 +97,4 @@ var AmvProducts = ( function() {
 AmvProducts.enable_logging();
 AmvProducts.init();
 
+//test pixy
