@@ -1,3 +1,15 @@
+== Description
+
+proxy api to an external client api.
+* will return data (a list of products) fetched from the client api if the client api is up and the data is parseable
+* will return an empty list of produts otherwise
+
+The external client api is quite slow so request are done in backgroud and returned data is cached. On cold cache => an empty list of products is returned
+
+Responses are in JSON format
+
+Errors are tracked using a third party tool (HoneyBadger)
+
 == Configuration
 
 In production several environement variables need to be manually set:

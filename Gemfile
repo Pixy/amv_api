@@ -16,6 +16,8 @@ gem 'savon', '~>1.2.0'
 gem 'honeybadger'
 
 gem 'http_logger', :git => "https://github.com/railsware/http_logger.git"
+
+gem 'rack-cors', :require => 'rack/cors'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

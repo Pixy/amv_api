@@ -44,21 +44,6 @@ Net::HTTP.logger = Logger.new(STDOUT)
 Net::HTTP.colorize = true
 
 
-Savon.configure do |config|
-
-  config.env_namespace = :soapenv
-
-  config.hooks.define(:measure, :soap_request) do |callback, request|
-    start_time = Time.now
-    response = callback.call
-
-    end_time = Time.now
-    puts "--- soap request done in #{ end_time - start_time} seconds ---"
-
-    response
-  end
-end
-
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.hook_into :fakeweb

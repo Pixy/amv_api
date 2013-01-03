@@ -67,4 +67,4 @@ AmvApi::Application.configure do
 end
 
 #todo: comment this
-Delayed::Worker.delay_jobs = false  #disable  jobs are executed synchronously
+Delayed::Worker.delay_jobs = false  #background jobs are executed synchronously

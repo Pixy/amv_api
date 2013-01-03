@@ -74,8 +74,14 @@ class AmvData < ActiveRecord::Base
       self.data = products_txt                             # store it in data
       self.expires_at = CACHE_TTL.seconds.from_now         # reset expires_at
       self.save!                                           # try to save!
-    rescue  => e
-      Honeybadger.notify(e)
+    rescue Exception => e
+      Honeybadger.notify(
+          :error_class   => e.class,
+          :error_message => "#{e.class}: #{e.message}",
+          :backtrace => e.backtrace,
+          :parameters    => {:method_to_fetch => method_to_fetch, :args => args},
+          :context => {:products_txt => products_txt, :self => self.to_yaml}
+      )
     end
 
     products_txt
@@ -88,11 +94,15 @@ class AmvData < ActiveRecord::Base
     unless data.blank?
       begin
         temp =  Nori.parse(data)
-        products = temp[:products][:product] if temp[:products] && temp[:products][:product]
-       #todo: uncomment this
-       #rescue  => e
-       # Honeybadger.notify(e)
-       # expire!   #data is not parseable => expire it!
+        products = temp[:products][:product]
+      rescue Exception => e
+        #todo expire unparsable data
+        Honeybadger.notify(
+            :error_class   => e.class.name,
+            :error_message => "#{e.class.name}: #{e.message}",
+            :backtrace => e.backtrace,
+            :context => {:self => self.to_yaml}
+        )
       end
     end
 

@@ -51,6 +51,7 @@ AmvApi::Application.routes.draw do
    root :to => 'products#tag'
 
    match "products/by_tag" => "products#tag"
+   match "products/by_skus" => "products#skus"
 
   # See how all your routes lay out with "rake routes"
 
