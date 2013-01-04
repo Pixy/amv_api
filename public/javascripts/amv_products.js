@@ -89,7 +89,7 @@ var AmvProducts = ( function() {
         customContent += '<ul class="widget-items">';
         for (var i = 0; i < content.length; i++) {
             customContent += '<li><div><a href="' + content[i].url + '"> <img src="' + content[i].visuel + '" /> </a></div>';
-            customContent += '<div><h3>' + content[i].libelle + '</h3><p class="marque">' + content[i].marque + '</p></div>';
+            customContent += '<div><h3>' + content[i].libelle + '</h3><p class="marque">' + content[i].marque + '</p><p class="description">Et Epigonus quidem amictu tenus philosophus, ut apparuit...</p></div>';
             customContent += '<div><p class="prix">' + content[i].prix + '</p></div></li>';
         }
         customContent += '</ul>';
