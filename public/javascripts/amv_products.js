@@ -1,7 +1,7 @@
 var AmvProducts = ( function() {
     var logging_enabled = false;
-    var server_url = "http://amv-api.dev"     //without the ending '/ '
-    //var server_url = "http://amv-api.herokuapp.com"     //without the ending '/ '
+    //var server_url = "http://amv-api.dev"     //without the ending '/ '
+    var server_url = "http://amv-api.herokuapp.com"     //without the ending '/ '
 
 
     function enable_logging(){
