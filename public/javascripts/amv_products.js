@@ -68,8 +68,6 @@ var AmvProducts = ( function() {
                     // Adding new container and classes for the slide widget
                     container.update('<div class="ipl_widget sliding_panel"></div>');
                     pcontainer = container.down('.ipl_widget.sliding_panel');
-                    pcontainer.update(JSON.stringify(transport.responseJSON));
-
                     // Call the update content function
                     updateContent(pcontainer, transport.responseJSON);
                 }
@@ -88,9 +86,9 @@ var AmvProducts = ( function() {
         customContent += '<div class="b">';
         customContent += '<ul class="widget-items">';
         for (var i = 0; i < content.length; i++) {
-            customContent += '<li><div><a href="' + content[i].url + '"> <img src="' + content[i].visuel + '" /> </a></div>';
-            customContent += '<div><h3>' + content[i].libelle + '</h3><p class="marque">' + content[i].marque + '</p><p class="description">Et Epigonus quidem amictu tenus philosophus, ut apparuit...</p></div>';
-            customContent += '<div><p class="prix">' + content[i].prix + '</p></div></li>';
+            customContent += '<li><div class="visuel"><a href="' + content[i].url + '"> <img src="' + content[i].visuel + '" /> </a></div>';
+            customContent += '<div class="container-text"><h3>' + content[i].libelle + '</h3><p class="marque">' + content[i].marque + '</p><p class="description">Et Epigonus quidem amictu tenus philosophus, ut apparuit...</p></div>';
+            customContent += '<div class="container-prix"><p class="prix">' + content[i].prix + '</p></div></li>';
         }
         customContent += '</ul>';
         customContent += '<div class="sliding_panel_controls total_entries_'+ content.length +'"> <a class="previous" href="?" title="Précédent"><span>Précédent</span></a><a class="next" href="?" title="Suivant"><span>Suivant</span></a></div>';
