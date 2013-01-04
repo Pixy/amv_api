@@ -64,11 +64,14 @@ var AmvProducts = ( function() {
                     widget.hide();
                 } else {
                     var container = widget.select('.products').first();
+
+                    // Adding new container and classes for the slide widget
                     container.update('<div class="ipl_widget sliding_panel"></div>');
                     pcontainer = container.down('.ipl_widget.sliding_panel');
                     pcontainer.update(JSON.stringify(transport.responseJSON));
-                    updateContent(pcontainer, transport.responseJSON);
 
+                    // Call the update content function
+                    updateContent(pcontainer, transport.responseJSON);
                 }
 
                 log("search with " + JSON.stringify(transport.request.parameters) + " returned " + transport.responseJSON.length + " results")
@@ -77,12 +80,10 @@ var AmvProducts = ( function() {
         })
     }
 
+    // Update the content of the widget with the JSON
     function updateContent(container, content) {
-        console.log(content);
-
         var customContent = '';
         customContent = '<div class="module">'
-        customContent += '<div class="hd"><div class="t"></div><div class="b"></div></div>';
         customContent += '<div class="bd"><div class="t"><h2> Boutique </h2></div>';
         customContent += '<div class="b">';
         customContent += '<ul class="widget-items">';
@@ -92,9 +93,8 @@ var AmvProducts = ( function() {
             customContent += '<div><p class="prix">' + content[i].prix + '</p></div></li>';
         }
         customContent += '</ul>';
-        customContent += '<div class="sliding_panel_controls total_entries_'+ content.length +'"> <a class="previous" href="?" title="Précédent"><span>Précédent</span></a><span class="sliding_pagination"></span><a class="next" href="?" title="Suivant"><span>Suivant</span></a></div>';
+        customContent += '<div class="sliding_panel_controls total_entries_'+ content.length +'"> <a class="previous" href="?" title="Précédent"><span>Précédent</span></a><a class="next" href="?" title="Suivant"><span>Suivant</span></a></div>';
         customContent += '</div></div>';
-        customContent += '<div class="ft"><div class="t"></div><div class="b"></div></div>';
         customContent += '</div>'; // .module
         container.update(customContent);
     }
@@ -123,4 +123,3 @@ var AmvProducts = ( function() {
 AmvProducts.enable_logging();
 AmvProducts.init();
 
-//test pixy
