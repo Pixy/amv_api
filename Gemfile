@@ -8,6 +8,7 @@ gem 'rails', '3.2.9'
 gem 'rails-api'
 
 gem 'pg'
+#gem "mysql2"
 
 gem 'delayed_job_active_record'
 

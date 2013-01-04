@@ -1,7 +1,7 @@
 var AmvProducts = ( function() {
     var logging_enabled = false;
-    // var server_url = "http://amv-api.dev"     //without the ending '/ '
-    var server_url = "http://amv-api.herokuapp.com"     //without the ending '/ '
+    var server_url = "http://amv-api.dev"     //without the ending '/ '
+    //var server_url = "http://amv-api.herokuapp.com"     //without the ending '/ '
 
 
     function enable_logging(){
@@ -63,14 +63,40 @@ var AmvProducts = ( function() {
                 if (transport.responseJSON.length == 0) {
                     widget.hide();
                 } else {
+                    var container = widget.select('.products').first();
+                    container.update('<div class="ipl_widget sliding_panel"></div>');
+                    pcontainer = container.down('.ipl_widget.sliding_panel');
+                    pcontainer.update(JSON.stringify(transport.responseJSON));
+                    updateContent(pcontainer, transport.responseJSON);
 
-                    widget.select(".products").first().update(JSON.stringify(transport.responseJSON));
                 }
 
                 log("search with " + JSON.stringify(transport.request.parameters) + " returned " + transport.responseJSON.length + " results")
 
             }
         })
+    }
+
+    function updateContent(container, content) {
+        console.log(content);
+
+        var customContent = '';
+        customContent = '<div class="module">'
+        customContent += '<div class="hd"><div class="t"></div><div class="b"></div></div>';
+        customContent += '<div class="bd"><div class="t"><h2> Boutique </h2></div>';
+        customContent += '<div class="b">';
+        customContent += '<ul class="widget-items">';
+        for (var i = 0; i < content.length; i++) {
+            customContent += '<li><div><a href="' + content[i].url + '"> <img src="' + content[i].visuel + '" /> </a></div>';
+            customContent += '<div><h3>' + content[i].libelle + '</h3><p class="marque">' + content[i].marque + '</p></div>';
+            customContent += '<div><p class="prix">' + content[i].prix + '</p></div></li>';
+        }
+        customContent += '</ul>';
+        customContent += '<div class="sliding_panel_controls total_entries_'+ content.length +'"> <a class="previous" href="?" title="Précédent"><span>Précédent</span></a><span class="sliding_pagination"></span><a class="next" href="?" title="Suivant"><span>Suivant</span></a></div>';
+        customContent += '</div></div>';
+        customContent += '<div class="ft"><div class="t"></div><div class="b"></div></div>';
+        customContent += '</div>'; // .module
+        container.update(customContent);
     }
 
     function init() {
