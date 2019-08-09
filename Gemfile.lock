@@ -34,9 +34,9 @@ GEM
     activesupport (3.2.9)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    akami (1.2.0)
+    akami (1.3.1)
       gyoku (>= 0.4.0)
-      nokogiri (>= 1.4.0)
+      nokogiri
     arel (3.0.2)
     builder (3.0.4)
     concurrent-ruby (1.1.5)
@@ -48,14 +48,15 @@ GEM
     diff-lcs (1.1.3)
     erubis (2.7.0)
     fakeweb (1.3.0)
-    gyoku (0.4.6)
+    gyoku (1.3.1)
       builder (>= 2.1.2)
     hike (1.2.3)
     honeybadger (1.4.0)
       activesupport
       json
-    httpi (1.1.1)
+    httpi (2.4.4)
       rack
+      socksify
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     journey (1.0.4)
@@ -69,7 +70,7 @@ GEM
     multi_json (1.13.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
-    nori (1.1.3)
+    nori (2.6.0)
     pg (1.1.4)
     polyglot (0.3.3)
     rack (1.4.7)
@@ -114,16 +115,17 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
-    savon (1.2.0)
-      akami (~> 1.2.0)
+    savon (2.12.0)
+      akami (~> 1.2)
       builder (>= 2.1.2)
-      gyoku (~> 0.4.5)
-      httpi (~> 1.1.0)
-      nokogiri (>= 1.4.0)
-      nori (~> 1.1.0)
-      wasabi (~> 2.5.0)
+      gyoku (~> 1.2)
+      httpi (~> 2.3)
+      nokogiri (>= 1.8.1)
+      nori (~> 2.4)
+      wasabi (~> 3.4)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    socksify (1.7.1)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -136,9 +138,9 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.35)
     vcr (2.3.0)
-    wasabi (2.5.1)
-      httpi (~> 1.0)
-      nokogiri (>= 1.4.0)
+    wasabi (3.5.0)
+      httpi (~> 2.0)
+      nokogiri (>= 1.4.2)
 
 PLATFORMS
   ruby
@@ -153,6 +155,6 @@ DEPENDENCIES
   rails (= 3.2.9)
   rails-api
   rspec-rails (~> 2.0)
-  savon (~> 1.2.0)
+  savon (~> 2.12.0)
   shoulda-matchers
   vcr

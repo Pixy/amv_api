@@ -12,7 +12,7 @@ gem 'pg'
 
 gem 'delayed_job_active_record'
 
-gem 'savon', '~>1.2.0'
+gem 'savon', '~>2.12.0'
 
 gem 'honeybadger'
 
