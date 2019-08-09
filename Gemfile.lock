@@ -41,6 +41,7 @@ GEM
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
+    concurrent-ruby (1.1.5)
     delayed_job (3.0.4)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.3)
@@ -57,7 +58,8 @@ GEM
       json
     httpi (1.1.1)
       rack
-    i18n (0.6.1)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     journey (1.0.4)
     json (1.7.5)
     mail (2.4.4)
