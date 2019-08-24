@@ -36,7 +36,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :test do
