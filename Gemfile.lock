@@ -71,7 +71,7 @@ GEM
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     nori (2.6.0)
-    pg (1.1.4)
+    pg (1.2.0)
     polyglot (0.3.3)
     rack (1.4.7)
     rack-cache (1.2)
