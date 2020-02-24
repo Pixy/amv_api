@@ -68,7 +68,7 @@ GEM
     mime-types (1.19)
     mini_portile2 (2.4.0)
     multi_json (1.13.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     nori (2.6.0)
     pg (1.1.4)
