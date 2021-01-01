@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/railsware/http_logger.git
-  revision: 39c1c9776d3ce2e43dc481fdf9c79c613929b933
+  revision: 7f1e7fc149cc6a2e073b3c123b6267b332c18da5
   specs:
-    http_logger (0.2.4)
+    http_logger (0.6.0)
 
 GEM
   remote: https://rubygems.org/
