@@ -136,7 +136,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.35)
+    tzinfo (0.3.61)
     vcr (2.3.0)
     wasabi (3.5.0)
       httpi (~> 2.0)
